@@ -16,9 +16,12 @@
     /* border-radius: 3px; */
     padding: 10px 10px;
     width: 90px;
-    opacity: 0.6;
-    pointer-events: none;
+    
 
+    /* opacity: 0.6; */
+    /* pointer-events: none; */
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .TodoFooter button.active {
