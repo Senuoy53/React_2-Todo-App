@@ -1,33 +1,13 @@
 .AddComponent {
-    display: flex;
-    height: 45px;
-    width: 100%;
-    margin: 20px 0;
+  display: flex;
+  height: 45px;
+  width: 100%;
+  margin: 20px 0;
 }
 
 .AddComponent button {
-    width: 60px;
-    height: 100%;
-    /* border: none; */
-    /* outline: none; */
-    /* background: #8e49e8; */
-    /* color: #fff; */
-    font-size: 22px;
-    /* cursor: pointer; */
-    /* border-radius: 3px; */
-    margin-left: 8px;
-    opacity: 0.6;
-    /* disable the cursor pointer */
-    /* pointer-events: none; */
-
-    opacity: 1;
-    pointer-events: auto;
+  width: 60px;
+  height: 100%;
+  font-size: 22px;
+  margin-left: 8px;
 }
-
-.AddComponent button.active {
-     opacity: 1;
-    /* disable the cursor pointer */
-    pointer-events: auto;
-}
-
-
