@@ -4,19 +4,11 @@ import "./index.css";
 // Bootstrap
 import { Button } from "react-bootstrap";
 
-const CustomButton = ({ contenu, onClick, deleteAllTasks }) => {
+const CustomButton = ({ children, value, onClick }) => {
   return (
-    // <button><i class="fas fa-plus"></i></button>
-    //  <Button><FontAwesomeIcon icon={faPlus}/></Button>
-    // <Button
-    //   onClick={() => {
-    //     onClick();
-    //     deleteAllTasks();
-    //   }}
-    // >
-    //   {contenu}
-    // </Button>
-    <Button onClick={onClick}>{contenu}</Button>
+    <Button onClick={onClick} className={`${value ? "active" : "inactive"}`}>
+      {children}
+    </Button>
   );
 };
 

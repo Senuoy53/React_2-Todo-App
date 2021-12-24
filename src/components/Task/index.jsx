@@ -4,14 +4,14 @@ import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import CustomButton from "../CustomButton";
-const Task = ({ item, deleteTasks }) => {
+const Task = ({ texte, onClick }) => {
   return (
     // <ul className="Task">
     //   {tasksData.map((item, index) => (
     <li>
-      {item}
-      <span onClick={deleteTasks}>
-        <CustomButton contenu={<FontAwesomeIcon icon={faTrash} />} />
+      {texte}
+      <span onClick={onClick}>
+        <CustomButton>{<FontAwesomeIcon icon={faTrash} />}</CustomButton>
       </span>
     </li>
     //   ))}

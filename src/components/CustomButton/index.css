@@ -1,21 +1,20 @@
 button {
-    /* width: 60px; */
-    /* height: 100%; */
-    border: none;
-    outline: none;
-    background: #8e49e8;
-    color: #fff;
-    /* font-size: 22px; */
-    cursor: pointer;
-    border-radius: 3px;
-    /* margin-left: 8px; */
-    /* opacity: 0.6; */
-    /* disable the cursor pointer */
-    pointer-events: none;
+  border: none;
+  outline: none;
+  background: #8e49e8;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
 button.active {
-     /* opacity: 1; */
-    /* disable the cursor pointer */
-    /* pointer-events: auto; */
+  opacity: 1;
+  /* disable the cursor pointer */
+  pointer-events: auto;
+}
+
+button.inactive {
+  opacity: 0.6;
+  /* disable the cursor pointer */
+  pointer-events: none;
 }

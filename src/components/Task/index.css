@@ -1,12 +1,11 @@
 .Task {
-  /* max-width: 250px; */
-  overflow-y: hidden;
+  overflow-x: hidden;
+  max-height: 250px;
 }
 
 .Task li {
   list-style: none;
   height: 45px;
-  list-style: 45px;
   background-color: #f2f2f2;
   margin-bottom: 8px;
   border-radius: 3px;
@@ -36,4 +35,10 @@
 
 .Task li:hover span {
   right: 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .Task li span {
+    right: 0px;
+  }
 }

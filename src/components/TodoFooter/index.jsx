@@ -2,17 +2,15 @@ import React from "react";
 import CustomButton from "../CustomButton";
 import "./index.css";
 
-const TodoFooter = ({ NumPending }) => {
+const TodoFooter = ({ NumPending, onClick }) => {
   return (
-    //   <div class="footer">
-    //             <span>You have <span id="pendingNumb">4</span> pending tasks</span>
-    //             <button>Clear All</button>
-    //         </div>
     <div className="TodoFooter">
       <span>
+        {console.log(!!NumPending)}
         You have <span id="NumPending">{NumPending}</span> pending tasks
       </span>
-      <CustomButton contenu="Clear All" />
+      {/* Conditional rendering */}
+      {!!NumPending && <CustomButton onClick={onClick}>Clear All</CustomButton>}
     </div>
   );
 };

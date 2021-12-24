@@ -6,18 +6,18 @@ import CustomInput from "../CustomInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-const AddComponent = ({ placeholder, onChange, inputVal, onClick }) => {
+const AddComponent = ({ placeholder, value, onChange, onClick }) => {
   return (
     <div className="AddComponent">
       <CustomInput
         placeholder={placeholder}
         onChange={onChange}
-        value={inputVal}
+        value={value}
       />
-      <CustomButton
-        contenu={<FontAwesomeIcon icon={faPlus} />}
-        onClick={onClick}
-      />
+
+      <CustomButton onClick={onClick} value={value}>
+        {<FontAwesomeIcon icon={faPlus} />}
+      </CustomButton>
     </div>
   );
 };

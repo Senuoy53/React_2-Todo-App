@@ -3,55 +3,46 @@ import "./index.css";
 import AddComponent from "../../components/AddComponent";
 import Task from "../../components/Task";
 import TodoFooter from "../../components/TodoFooter";
+import { Data } from "../../utils/constants";
 
 const TodoContainer = () => {
-  const [tasksData, setTasksData] = useState([
-    "Buy a new gaming laptop",
-    "Complete a previous task",
-    "Create a video for YouTube",
-    "Create a new portfolio site",
-  ]);
-  const [inputVal, setInputVal] = useState();
-  const [NumPending, setNumPending] = useState(tasksData.length);
+  const [tasksData, setTasksData] = useState([...Data]);
+  const [inputVal, setInputVal] = useState("");
+  // const [NumPending, setNumPending] = useState(tasksData.length);
   const handleChange = (val) => {
     // console.log(val);
     setInputVal(val);
-    // console.log(inputVal);
   };
-  const handleClick = () => {
-    if (!inputVal) return;
-    // console.log(inputVal);
-    // tasksData.push(inputVal);
-    // console.log(tasksData);
-    setTasksData([...tasksData, inputVal]);
-    setInputVal("");
-    setNumPending(tasksData.length + 1);
+  const handleClick = (from, index) => {
+    switch (from) {
+      // Add Tasks
+      case "add":
+        if (!inputVal) return;
+        setTasksData([...tasksData, inputVal]);
+        setInputVal("");
+        // setNumPending(tasksData.length + 1);
+        break;
+      // Delete Task
+      case "clear_task":
+        setTasksData(
+          tasksData.filter((item, itemIndex) => {
+            // console.log(`itemIndex : ${itemIndex}`);
+            return itemIndex !== index;
+          })
+        );
+
+        // setNumPending(tasksData.length - 1);
+
+        break;
+      // Delete All Tasks
+      case "clear_all":
+        setTasksData([]);
+        // setNumPending(0);
+        break;
+      default:
+        break;
+    }
   };
-
-  // Delete Tasks
-  const deleteTasks = (index) => {
-    // console.log(`index : ${index}`);
-    // tasksData.splice(index, 1);
-    // console.log(tasksData);
-    setTasksData(
-      tasksData.filter((item, itemIndex) => {
-        // console.log(`itemIndex : ${itemIndex}`);
-        return itemIndex !== index;
-      })
-    );
-
-    setNumPending(tasksData.length - 1);
-  };
-  // Delete All Tasks
-  //   const deleteAllTasks = () => {
-  //     setTasksData("");
-  //   };
-
-  //   const showTasks = () => {
-  //     return tasksData.map((item, index) => (
-  //       <Task key={index} item={item} deleteTasks={() => deleteTasks(index)} />
-  //     ));
-  //   };
 
   return (
     <div id="TodoContainer">
@@ -59,21 +50,22 @@ const TodoContainer = () => {
       <AddComponent
         placeholder={"Add your new todo"}
         onChange={handleChange}
-        inputVal={inputVal}
-        onClick={handleClick}
+        value={inputVal}
+        onClick={() => handleClick("add")}
       />
       <ul className="Task">
         {tasksData.map((item, index) => (
           <Task
             key={index}
-            item={item}
-            deleteTasks={() => deleteTasks(index)}
+            texte={item}
+            onClick={() => handleClick("clear_task", index)}
           />
         ))}
-        {/* {showTasks()} */}
       </ul>
-      {/* <TodoFooter NumPending={NumPending} deleteAllTasks={deleteAllTasks} /> */}
-      <TodoFooter NumPending={NumPending} />
+      <TodoFooter
+        NumPending={tasksData.length}
+        onClick={() => handleClick("clear_all")}
+      />
     </div>
   );
 };
